@@ -40,7 +40,7 @@ public class Red {
             ArrayList<Nodo> visitados = new ArrayList<>();
             ArrayList<Nodo> porVisitar = new ArrayList<>();
             porVisitar.add(origen);
-
+            //A
             while (!porVisitar.isEmpty()) {
                 Nodo actual = porVisitar.remove(0);
                 if (!visitados.contains(actual)) {
@@ -72,8 +72,7 @@ public class Red {
   
     int contarVulnerablesAlcanzables(Nodo origen) {
             // Contar vulnerables alcanzables desde origen (BFS)
-<<<<<<< Updated upstream
-            
+            // AJUDA
             
             return 0;
     }
@@ -81,50 +80,10 @@ public class Red {
     String listarVecinosDe(Nodo n) {
             // Listar vecinos (iterar vecinos)
             return "";
-=======
-            // Contar vulnerables alcanzables desde origen (BFS)
-            ArrayList visitados = new ArrayList<>();
-            ArrayList porVisitar = new ArrayList<>();
-            porVisitar.add(origen);
-            int contador = 0;
-
-            while (!porVisitar.isEmpty()) {
-                Nodo actual = porVisitar.remove(0);
-                if (!visitados.contains(actual)) {
-                visitados.add(actual);
-                    if (actual.vulnerable) {
-                        contador++;
-                    }
-                for (Nodo vecino : actual.vecinos) {
-                    if (!visitados.contains(vecino) && !porVisitar.contains(vecino)) {
-                        porVisitar.add(vecino);
-                    }
-                }
-            }
-        }
-        return contador;
-    }
     }
 
-    String listarVecinosDe(Nodo n) {
-    // Listar vecinos (iterar vecinos)
-        StringBuilder sb = new StringBuilder();
-        for (Nodo vecino : n.vecinos) {
-            sb.append(vecino.nombre).append(", ");
-        }
-        return sb.toString();
->>>>>>> Stashed changes
+    ArrayList<Nodo> nodosAislados() {
+            // Obtener nodos aislados (vecinos.size()==0)
+            return new ArrayList<>();
     }
-
-    ArrayList nodosAislados() {
-        // Obtener nodos aislados (vecinos.size()==0)
-        ArrayList aislados = new ArrayList<>();
-        for (Nodo n : nodos) {
-            if (n.vecinos.isEmpty()) {
-                aislados.add(n);
-            }
-        }
-        return aislados;
 }
-
-
