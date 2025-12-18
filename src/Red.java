@@ -27,8 +27,8 @@ public class Red {
 
      void resetCompromisos() {
             // TODO: poner comprometido=false a todos los nodos
-            for (Nodo n : nodos) {
-                n.setComprometido(false);
+            for(Nodo n : nodos){
+                    n.comprometido = false;
             }
     }
 
@@ -41,16 +41,30 @@ public class Red {
 
     Nodo buscarPorIP(String ip) {
             // Buscar por IP (iterar nodos)
+            for(Nodo n : nodos){
+                if (n.ip.equals(ip)){
+                    return n;
+                }
+            }
             return null;
     }
   
     int contarVulnerablesAlcanzables(Nodo origen) {
             // Contar vulnerables alcanzables desde origen (BFS)
-            return 0;
+            int count = 0;
+            for(Nodo n : nodos){
+                if (n){
+                    count += 1;
+                }
+            }
+            return count;
     }
 
     String listarVecinosDe(Nodo n) {
             // Listar vecinos (iterar vecinos)
+            for(Nodo n : nodos){
+                n.getVecinos();
+            }
             return "";
     }
 
