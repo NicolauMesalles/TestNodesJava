@@ -2,11 +2,18 @@
 import java.util.ArrayList;
 
 public class Nodo {
-    private String nombre;
-    private ArrayList<Nodo> vecinos;
+    String nombre;
+    String ip;
+    boolean firewall;
+    boolean vulnerable;
+    boolean comprometido;
+    ArrayList<Nodo> vecinos;
 
-    public Nodo(String nombre) {
+    public Nodo(String nombre, String ip, boolean firewall, boolean vulnerable) {
         this.nombre = nombre;
+        this.ip = ip;
+        this.firewall = firewall;
+        this.vulnerable = vulnerable;
         this.vecinos = new ArrayList<>();
     }
 
@@ -18,14 +25,22 @@ public class Nodo {
     public String getNombre() {
         return nombre;
     }
+
+    
     
     public String getVecinos() {
         String tmp = "";
         for (Nodo v : vecinos) {
-            tmp += "[" + v.getNombre() + "] ";
+            tmp += "[" + v.getNombre() + "] - ";
         }
         return tmp;
     }
 
-}
 
+     @Override
+    public String toString() {
+        // TODO: devolver algo tipo:
+        // "WebServer (172.16.0.10) [VULN] [PWN]" etc.
+        return "";
+    }
+}
